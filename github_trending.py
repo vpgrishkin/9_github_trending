@@ -12,13 +12,13 @@ def get_date_some_days_ago(days_ago=DEFAULT_DAYS_COUNT):
     return str(date.today() - timedelta(days=days_ago))
 
 
-def get_trending_repositories(reps_number, days_ago, API_url):
+def get_trending_repositories(reps_number, days_ago, api):
     period = get_date_some_days_ago(days_ago)
     request_params = {'q': 'created:>{}'.format(period),
                       'sort': 'stars',
                       'order': 'desc',
                       'per_page': str(reps_number)}
-    all_repos = requests.get(API_url, request_params)
+    all_repos = requests.get(api, request_params)
     return all_repos.json()['items']
 
 
