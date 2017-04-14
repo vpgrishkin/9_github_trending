@@ -22,7 +22,7 @@ def get_trending_repositories(reps_number, days_ago, api):
     return all_repos.json()['items']
 
 
-def print_epositories_list(repositories):
+def print_repositories_list(repositories):
     for index, rep in enumerate(repositories, 1):
         print('{}. Repository: {}\nURL: {}\nOpen issues: {}\n'.format
               (index,
@@ -36,4 +36,4 @@ if __name__ == '__main__':
                                              DEFAULT_DAYS_COUNT,
                                              GITHUB_REP_API)
     print("The {} most popular repositories on github.com".format(DEFAULT_REPS_NUMBER))
-    print_epositories_list(repositories)
+    print_repositories_list(repositories)
